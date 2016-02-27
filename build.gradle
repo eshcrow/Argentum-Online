@@ -1,0 +1,37 @@
+//!
+//! [BUILD-SCRIPT]
+//!
+buildscript {
+    //!
+    //! [BUILD-SCRIPT::REPOSITORIES]
+    //!
+    repositories {
+        maven {
+            url 'http://oss.sonatype.org/content/repositories/snapshots'
+        }
+        jcenter()
+    }
+}
+
+//!
+//! [SUB-PROJECT]
+//!
+subprojects {
+    //!
+    //! [ALL-PROJECT::REPOSITORIES]
+    //!
+    repositories {
+        maven {
+            url "http://oss.sonatype.org/content/groups/public/"
+        }
+        maven {
+            url 'http://oss.sonatype.org/content/repositories/snapshots'
+        }
+        mavenCentral();
+    }
+
+    //!
+    //! [ALL-PROJECT::JAVA]
+    //!
+    apply plugin: 'java'
+}
