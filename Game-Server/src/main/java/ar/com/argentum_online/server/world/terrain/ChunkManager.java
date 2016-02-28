@@ -23,7 +23,7 @@ import java.util.Optional;
 import java.util.function.Predicate;
 
 /**
- * Represents a chunk manager, which may contain chunks and tiles.
+ * Represents a manager which handle {@linkplain Chunk}(s).
  *
  * @author Agustin L. Alvarez <wolftein1@gmail.com>
  */
