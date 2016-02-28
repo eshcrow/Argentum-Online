@@ -11,6 +11,13 @@ buildscript {
         }
         jcenter()
     }
+
+    //!
+    //! [BUILD-SCRIPT::DEPENDENCIES]
+    //!
+    dependencies {
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.0.0'
+    }
 }
 
 //!
@@ -31,7 +38,24 @@ subprojects {
     }
 
     //!
-    //! [ALL-PROJECT::JAVA]
+    //! [ALL-PROJECT::KOTLIN]
     //!
-    apply plugin: 'java'
+    apply plugin: 'kotlin'
+
+    //!
+    //! [ALL-PROJECT::KOTLIN::FOLDER]
+    //!
+    sourceSets {
+        main.kotlin.srcDirs += 'src/main/kotlin'
+    }
+
+    //!
+    //! [ALL-PROJECT::KOTLIN::DEPENDENCIES]
+    //!
+    dependencies {
+        //!
+        //! [STANDARD-LIBRARY]
+        //!
+        compile 'org.jetbrains.kotlin:kotlin-stdlib:1.0.0'
+    }
 }

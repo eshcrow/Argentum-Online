@@ -1,2 +1,4 @@
 include 'Game-Server'
+include 'Game-Common'
+include 'Game-Client'
 
