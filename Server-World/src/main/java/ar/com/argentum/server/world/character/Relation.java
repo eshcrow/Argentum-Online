@@ -18,10 +18,43 @@
 package ar.com.argentum.server.world.character;
 
 /**
- * Created by Wolftein on 2/29/2016.
+ * Represent a relation status.
+ *
+ * @author Agustin L. Alvarez <wolftein1@gmail.com>
  */
 public enum Relation {
-    ALLIED,
+    /**
+     * Relation is good between both counterpart(s).
+     */
+    ALLY,
+
+    /**
+     * Relation is bad between both counterpart(s).
+     */
     ENEMY,
-    NEUTRAL
+
+    /**
+     * Relation is neutral between both counterpart(s).
+     */
+    NEUTRAL;
+    
+    /**
+     * An array that contain(s) all enumeration values.
+     */
+    public static final Relation[] VALUES = Relation.values();
+    public static final int LENGTH = VALUES.length;
+
+    /**
+     * Retrieve the enumeration value given the indice.
+     *
+     * @param index the index of the enumeration.
+     *
+     * @return the enumeration representation of the given index.
+     */
+    public static Relation getEnumeration(int index) {
+        if (index < 0 || index >= LENGTH) {
+            throw new IllegalArgumentException("Enumeration index is out of bounds");
+        }
+        return VALUES[index];
+    }
 }
