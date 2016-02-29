@@ -98,7 +98,7 @@ public final class Religion {
     public boolean isAllied(Religion religion) {
         Objects.nonNull(religion);
 
-        return mRelationship.getIfAbsentValue(religion.getName(), Relation.NEUTRAL) == Relation.ALLIED;
+        return mRelationship.getIfAbsentValue(religion.getName(), Relation.NEUTRAL) == Relation.ALLY;
     }
 
     /**
@@ -124,6 +124,6 @@ public final class Religion {
     public boolean isAllowed(Alignment alignment) {
         Objects.nonNull(alignment);
 
-        return Alignment.getRelation(mAlignment, alignment) == Relation.ALLIED;
+        return Alignment.getRelation(mAlignment, alignment) == Relation.ALLY;
     }
 }

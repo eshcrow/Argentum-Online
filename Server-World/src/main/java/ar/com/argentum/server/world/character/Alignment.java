@@ -73,7 +73,7 @@ public enum Alignment {
                     case EVIL:
                         return Relation.ENEMY;
                     case GOOD:
-                        return Relation.ALLIED;
+                        return Relation.ALLY;
                     case NEUTRAL:
                         return Relation.NEUTRAL;
                 }
@@ -81,7 +81,7 @@ public enum Alignment {
             case EVIL:
                 switch (second) {
                     case EVIL:
-                        return Relation.ALLIED;
+                        return Relation.ALLY;
                     case GOOD:
                         return Relation.ENEMY;
                     case NEUTRAL:
@@ -93,5 +93,4 @@ public enum Alignment {
         }
         throw new IllegalArgumentException("Alignment is unsupported");
     }
-
 }
