@@ -36,5 +36,25 @@ public enum Orientation {
     /**
      * Possible: Neutral Good, Neutral, Neutral Evil.
      */
-    NUETRAL
+    NUETRAL;
+
+    /**
+     * An array that contain(s) all enumeration values.
+     */
+    public static final Orientation[] VALUES = Orientation.values();
+    public static final int LENGTH = VALUES.length;
+
+    /**
+     * Retrieve the enumeration value given the indice.
+     *
+     * @param index the index of the enumeration.
+     *
+     * @return the enumeration representation of the given index.
+     */
+    public static Orientation getEnumeration(int index) {
+        if (index < 0 || index >= LENGTH) {
+            throw new IllegalArgumentException("Enumeration index is out of bounds");
+        }
+        return VALUES[index];
+    }
 }
