@@ -1,4 +1,3 @@
-include 'Game-Server'
-include 'Game-Common'
-include 'Game-Client'
+include 'Server-World'
+include 'Server-World-Detail'
 
