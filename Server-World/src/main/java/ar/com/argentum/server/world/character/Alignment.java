@@ -57,4 +57,41 @@ public enum Alignment {
         }
         return VALUES[index];
     }
+
+    /**
+     * Retrieves the {@linkplain Relation} of both {@linkplain Alignment}.
+     *
+     * @param first  the first alignment for the comparision.
+     * @param second the second alignment for the comparision.
+     *
+     * @return {@linkplain Relation} of the given {@linkplain Alignment}.
+     */
+    public static Relation getRelation(Alignment first, Alignment second) {
+        switch (first) {
+            case GOOD:
+                switch (second) {
+                    case EVIL:
+                        return Relation.ENEMY;
+                    case GOOD:
+                        return Relation.ALLIED;
+                    case NEUTRAL:
+                        return Relation.NEUTRAL;
+                }
+                throw new IllegalArgumentException("Alignment is unsupported");
+            case EVIL:
+                switch (second) {
+                    case EVIL:
+                        return Relation.ALLIED;
+                    case GOOD:
+                        return Relation.ENEMY;
+                    case NEUTRAL:
+                        return Relation.NEUTRAL;
+                }
+                throw new IllegalArgumentException("Alignment is unsupported");
+            case NEUTRAL:
+                return Relation.NEUTRAL;
+        }
+        throw new IllegalArgumentException("Alignment is unsupported");
+    }
+
 }

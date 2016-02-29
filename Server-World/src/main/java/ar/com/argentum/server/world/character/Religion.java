@@ -17,7 +17,8 @@
  */
 package ar.com.argentum.server.world.character;
 
-import java.util.Map;
+import com.gs.collections.api.map.ImmutableMap;
+
 import java.util.Objects;
 
 /**
@@ -26,21 +27,34 @@ import java.util.Objects;
  * @author Agustin L. Alvarez <wolftein1@gmail.com>
  */
 public final class Religion {
+    /**
+     * Define the name of the religion.
+     */
     private final String mName;
-    private final Map<String, Boolean> mReligions;
-    private final Map<Alignment, Boolean> mAlignments;
+
+    /**
+     * Define the aligment of the religion.
+     * </p>
+     * Only {@linkplain Character} of the given {@linkplain Alignment} are allowed.
+     */
+    private final Alignment mAlignment;
+
+    /**
+     * Define all the relationship of the religion with other(s) religion(s).
+     */
+    private final ImmutableMap<String, Relation> mRelationship;
 
     /**
      * Constructor for {@link Religion}.
      *
-     * @param name       the name of the religion.
-     * @param religions  a collection that contain(s) all relationship with other religion(s).
-     * @param alignments a collection that contain(s) all relationship with other alignment(s).
+     * @param name         the name of the religion.
+     * @param alignment    the {@linkplain Alignment} of the religion.
+     * @param relationship a collection that contain(s) all relationship with other religion(s).
      */
-    public Religion(String name, Map<String, Boolean> religions, Map<Alignment, Boolean> alignments) {
+    public Religion(String name, Alignment alignment, ImmutableMap<String, Relation> relationship) {
         this.mName = name;
-        this.mReligions = religions;
-        this.mAlignments = alignments;
+        this.mAlignment = alignment;
+        this.mRelationship = relationship;
     }
 
     /**
@@ -53,16 +67,25 @@ public final class Religion {
     }
 
     /**
+     * Retrieves the {@linkplain Alignment} of the {@linkplain Religion}.
+     *
+     * @return the alignment of the religion.
+     */
+    public Alignment getAlignment() {
+        return mAlignment;
+    }
+
+    /**
      * Check whenever the given {@linkplain Religion} is enemy.
      *
      * @param religion the other religion.
      *
-     * @return true if the given religion is enemy, false otherwise.
+     * @return {@linkplain Boolean#TRUE} if the given religion is enemy, {@linkplain Boolean#FALSE} otherwise.
      */
     public boolean isEnemy(Religion religion) {
         Objects.nonNull(religion);
 
-        return !mReligions.getOrDefault(religion.getName(), true);
+        return mRelationship.getIfAbsentValue(religion.getName(), Relation.NEUTRAL) == Relation.ENEMY;
     }
 
     /**
@@ -70,12 +93,12 @@ public final class Religion {
      *
      * @param religion the other religion.
      *
-     * @return true if the given religion is allied, false otherwise.
+     * @return {@linkplain Boolean#TRUE} if the given religion is allied, {@linkplain Boolean#FALSE} otherwise.
      */
     public boolean isAllied(Religion religion) {
         Objects.nonNull(religion);
 
-        return mReligions.getOrDefault(religion.getName(), false);
+        return mRelationship.getIfAbsentValue(religion.getName(), Relation.NEUTRAL) == Relation.ALLIED;
     }
 
     /**
@@ -83,12 +106,12 @@ public final class Religion {
      *
      * @param religion the other religion.
      *
-     * @return true if the given religion is neutral, false otherwise.
+     * @return {@linkplain Boolean#TRUE} if the given religion is neutral, {@linkplain Boolean#FALSE} otherwise.
      */
     public boolean isNeutral(Religion religion) {
         Objects.nonNull(religion);
 
-        return mReligions.getOrDefault(religion.getName(), true);
+        return mRelationship.getIfAbsentValue(religion.getName(), Relation.NEUTRAL) == Relation.NEUTRAL;
     }
 
     /**
@@ -96,11 +119,11 @@ public final class Religion {
      *
      * @param alignment the alignment of the adventurer.
      *
-     * @return true if the given alignment is allowed, false otherwise.
+     * @return {@linkplain Boolean#TRUE} if the given alignment is allowed, {@linkplain Boolean#FALSE} otherwise.
      */
     public boolean isAllowed(Alignment alignment) {
         Objects.nonNull(alignment);
 
-        return mAlignments.getOrDefault(alignment, false);
+        return Alignment.getRelation(mAlignment, alignment) == Relation.ALLIED;
     }
 }
