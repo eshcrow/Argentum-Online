@@ -40,6 +40,11 @@ public final class Attribute {
     private final AttributeType mType;
 
     /**
+     * Represent the base value of the {@linkplain Attribute} (After evaluator(s) applied).
+     */
+    private double mBase;
+
+    /**
      * Represent the final value of the {@linkplain Attribute} (After evaluator(s) applied).
      */
     private double mFinal;
@@ -73,6 +78,7 @@ public final class Attribute {
     public Attribute(AttributeManager manager, AttributeType type) {
         this.mManager = manager;
         this.mType = type;
+        this.mBase = type.getBase();
     }
 
     /**
@@ -230,7 +236,24 @@ public final class Attribute {
      * @return the base value of the attribute.
      */
     public double getBase() {
-        return mType.getBase();
+        return mBase;
+    }
+
+    /**
+     * Retrieves the base value of the {@linkplain Attribute}.
+     *
+     * @param base the new base value of the attribute.
+     */
+    public void setBase(double base) {
+        mUpdated = (mBase == base);
+        if (!mUpdated) {
+            mBase = base;
+
+            //!
+            //! Notify every {@linkplain Procedure<Attribute>} registered.
+            //!
+            mNotification.each(T -> T.value(this));
+        }
     }
 
     /**
