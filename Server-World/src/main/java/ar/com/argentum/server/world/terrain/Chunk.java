@@ -19,8 +19,6 @@ package ar.com.argentum.server.world.terrain;
 
 /**
  * {@link Chunk}s are segments of the world containing a group of tiles.
- *
- * @author Agustin L. Alvarez <wolftein1@gmail.com>
  */
 public final class Chunk {
     /**

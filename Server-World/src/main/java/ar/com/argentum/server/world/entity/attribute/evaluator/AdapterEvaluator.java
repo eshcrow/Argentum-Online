@@ -25,8 +25,6 @@ import com.gs.collections.impl.factory.Lists;
 
 /**
  * Encapsulate an {@linkplain Attribute.Evaluator} which evaluates as division.
- *
- * @author Agustin L. Alvarez <wolftein1@gmail.com>
  */
 public final class AdapterEvaluator implements Attribute.Evaluator {
     private final Evaluator mEvaluator;

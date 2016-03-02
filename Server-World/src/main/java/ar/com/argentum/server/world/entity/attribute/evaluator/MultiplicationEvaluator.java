@@ -22,8 +22,6 @@ import ar.com.argentum.server.world.entity.attribute.AttributeManager;
 
 /**
  * Encapsulate an {@linkplain Attribute.Evaluator} which evaluates as multiplication.
- *
- * @author Agustin L. Alvarez <wolftein1@gmail.com>
  */
 @FunctionalInterface
 public interface MultiplicationEvaluator extends Attribute.Evaluator {

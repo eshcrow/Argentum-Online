@@ -24,8 +24,6 @@ import java.util.Optional;
 
 /**
  * Represents a manager which handles {@linkplain Chunk}(s).
- *
- * @author Agustin L. Alvarez <wolftein1@gmail.com>
  */
 public interface ChunkManager {
     /**

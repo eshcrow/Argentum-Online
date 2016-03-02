@@ -22,8 +22,6 @@ import com.gs.collections.impl.list.mutable.FastList;
 
 /**
  * Represent all {@linkplain Attribute}(s).
- *
- * @author Agustin L. Alvarez <wolftein1@gmail.com>
  */
 public enum AttributeType {
     /**

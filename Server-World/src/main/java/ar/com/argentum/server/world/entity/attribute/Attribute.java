@@ -25,8 +25,6 @@ import com.gs.collections.impl.factory.Lists;
 
 /**
  * Represent an attribute which change though external {@linkplain Evaluator}.
- *
- * @author Agustin L. Alvarez <wolftein1@gmail.com>
  */
 public final class Attribute {
     /**
@@ -336,8 +334,6 @@ public final class Attribute {
 
     /**
      * Represent the {@linkplain FunctionalInterface} for applying modification(s) over an {@linkplain Attribute}(s).
-     *
-     * @author Agustin L. Alvarez <wolftein1@gmail.com>
      */
     @FunctionalInterface
     public interface Evaluator {
@@ -354,8 +350,6 @@ public final class Attribute {
 
     /**
      * Represent the {@linkplain FunctionalInterface} for proxy an {@linkplain Evaluator}.
-     *
-     * @author Agustin L. Alvarez <wolftein1@gmail.com>
      */
     @FunctionalInterface
     public interface EvaluatorProxy extends Evaluator {
@@ -381,8 +375,6 @@ public final class Attribute {
 
     /**
      * Represent an {@linkplain EvaluatorProxy} for base {@linkplain Evaluator}(s).
-     *
-     * @author Agustin L. Alvarez <wolftein1@gmail.com>
      */
     @FunctionalInterface
     public interface ApplyToBase extends EvaluatorProxy {
@@ -390,8 +382,6 @@ public final class Attribute {
 
     /**
      * Represent an {@linkplain EvaluatorProxy} for final {@linkplain Evaluator}(s).
-     *
-     * @author Agustin L. Alvarez <wolftein1@gmail.com>
      */
     @FunctionalInterface
     public interface ApplyToFinal extends EvaluatorProxy {

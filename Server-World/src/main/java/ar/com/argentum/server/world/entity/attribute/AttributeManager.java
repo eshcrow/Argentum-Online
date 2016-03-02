@@ -21,8 +21,6 @@ import java.util.Optional;
 
 /**
  * Represents a manager which handles {@linkplain Attribute}(s).
- *
- * @author Agustin L. Alvarez <wolftein1@gmail.com>
  */
 public interface AttributeManager {
     /**
