@@ -51,4 +51,20 @@ public interface AttributeManager {
      * @return an {@linkplain Optional} reference of the {@linkplain Attribute} with the given identifier.
      */
     Optional<Attribute> getAttribute(AttributeType type);
+
+    /**
+     * Add an {@linkplain AttributeModifier}.
+     * </p>
+     * NOTE: If the attribute is not found, then the attribute will be created.
+     *
+     * @param modifier the {@linkplain AttributeModifier} for a specific {@linkplain Attribute}.
+     */
+    void addModifier(AttributeModifier modifier);
+
+    /**
+     * Removes an {@linkplain AttributeModifier}.
+     *
+     * @param modifier the {@linkplain AttributeModifier} for a specific {@linkplain Attribute}.
+     */
+    void removeModifier(AttributeModifier modifier);
 }

@@ -19,6 +19,7 @@ package ar.com.argentum.server.world.entity.component;
 
 import ar.com.argentum.server.world.entity.attribute.Attribute;
 import ar.com.argentum.server.world.entity.attribute.AttributeManager;
+import ar.com.argentum.server.world.entity.attribute.AttributeModifier;
 import ar.com.argentum.server.world.entity.attribute.AttributeType;
 import com.artemis.Component;
 
@@ -70,5 +71,28 @@ public final class AttributeComponent extends Component implements AttributeMana
     @Override
     public Optional<Attribute> getAttribute(AttributeType type) {
         return Optional.ofNullable(mDictionary.get(type));
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void addModifier(AttributeModifier modifier) {
+        //!
+        //! Retrieves the Attribute or create a new one.
+        //!
+        final Attribute attribute = getAttribute(modifier.getType()).orElse(registerAttribute(modifier.getType()));
+        attribute.addModifier(modifier.getEvaluator());
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void removeModifier(AttributeModifier modifier) {
+        //!
+        //! Removes the Attribute only if present.
+        //!
+        getAttribute(modifier.getType()).ifPresent(Attribute -> Attribute.removeModifier(modifier.getEvaluator()));
     }
 }
