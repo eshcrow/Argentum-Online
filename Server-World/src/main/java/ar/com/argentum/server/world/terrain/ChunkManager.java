@@ -17,10 +17,10 @@
  */
 package ar.com.argentum.server.world.terrain;
 
+import com.gs.collections.api.block.predicate.Predicate;
 import com.gs.collections.api.collection.ImmutableCollection;
 
 import java.util.Optional;
-import java.util.function.Predicate;
 
 /**
  * Represents a manager which handles {@linkplain Chunk}(s).

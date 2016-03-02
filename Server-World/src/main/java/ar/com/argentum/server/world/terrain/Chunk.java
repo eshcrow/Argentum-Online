@@ -43,6 +43,7 @@ public final class Chunk {
     private final int mY;
     private final int[] mTiles;
     private final int[] mEntities;
+    private final int[] mItems;
     private final int[] mProperties;
 
     /**
@@ -52,7 +53,7 @@ public final class Chunk {
      * @param y the y coordinate of the chunk within the world.
      */
     public Chunk(int x, int y) {
-        this(x, y, new int[CHUNK_LENGTH], new int[CHUNK_LENGTH], new int[CHUNK_LENGTH]);
+        this(x, y, new int[CHUNK_LENGTH], new int[CHUNK_LENGTH], new int[CHUNK_LENGTH], new int[CHUNK_LENGTH]);
     }
 
     /**
@@ -64,11 +65,12 @@ public final class Chunk {
      * @param entities   a collection that contains every entity in the chunk.
      * @param properties a collection that contains every properties in the chunk.
      */
-    public Chunk(int x, int y, int[] tiles, int[] entities, int[] properties) {
+    public Chunk(int x, int y, int[] tiles, int[] entities, int[] items, int[] properties) {
         this.mX = x;
         this.mY = y;
         this.mTiles = tiles;
         this.mEntities = entities;
+        this.mItems = items;
         this.mProperties = properties;
     }
 
@@ -231,6 +233,38 @@ public final class Chunk {
      */
     public int[] getEntities() {
         return mEntities;
+    }
+
+    /**
+     * Set the item at the given coordinate.
+     *
+     * @param x  the x coordinates (in relative coordinates).
+     * @param y  the y coordinates (in relative coordinates).
+     * @param id the unique identifier of the item.
+     */
+    public void setItem(int x, int y, int id) {
+        mItems[getTilePosition(x, y)] = id;
+    }
+
+    /**
+     * Retrieves the item at the given coordinates.
+     *
+     * @param x the x coordinates (in relative coordinates).
+     * @param y the y coordinates (in relative coordinates).
+     *
+     * @return the identifier of the item at the given coordinates.
+     */
+    public int getItem(int x, int y) {
+        return mItems[getTilePosition(x, y)];
+    }
+
+    /**
+     * Retrieves all item from the chunk.
+     *
+     * @return an array that contain(s) all item of the chunk.
+     */
+    public int[] getItems() {
+        return mItems;
     }
 
     /**

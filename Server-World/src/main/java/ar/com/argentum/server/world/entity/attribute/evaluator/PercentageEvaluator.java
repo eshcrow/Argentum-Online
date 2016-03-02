@@ -15,41 +15,30 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package ar.com.argentum.server.world.character;
+package ar.com.argentum.server.world.entity.attribute.evaluator;
+
+import ar.com.argentum.server.world.entity.attribute.Attribute;
+import ar.com.argentum.server.world.entity.attribute.AttributeManager;
 
 /**
- * Enumerates all gender of an {@linkplain Character}.
+ * Encapsulate an {@linkplain Attribute.Evaluator} which evaluates as percentage.
  *
  * @author Agustin L. Alvarez <wolftein1@gmail.com>
  */
-public enum Gender {
+@FunctionalInterface
+public interface PercentageEvaluator extends Attribute.Evaluator {
     /**
-     * Female (♀).
+     * {@inheritDoc}
      */
-    FEMALE,
-
-    /**
-     * Male (♂).
-     */
-    MALE;
-
-    /**
-     * An array that contain(s) all enumeration values.
-     */
-    public static final Gender[] VALUES = Gender.values();
-    public static final int LENGTH = VALUES.length;
-
-    /**
-     * Retrieve the enumeration value given the indice.
-     *
-     * @param index the index of the enumeration.
-     *
-     * @return the enumeration representation of the given index.
-     */
-    public static Gender getEnumeration(int index) {
-        if (index < 0 || index >= LENGTH) {
-            throw new IllegalArgumentException("Enumeration index is out of bounds");
-        }
-        return VALUES[index];
+    @Override
+    default double applyBonus(AttributeManager manager, double applyOn) {
+        return applyOn * (getBonusApplied() * 0.01);
     }
+
+    /**
+     * Retrieves the bonus applied of the {@linkplain Attribute.Evaluator}.
+     *
+     * @return the bonus applied of the evaluator.
+     */
+    double getBonusApplied();
 }
