@@ -24,6 +24,7 @@ import com.artemis.Component;
  * Encapsulate a {@linkplain Component} which encapsulate {@linkplain Heading}.
  */
 public final class PositionHeadingComponent extends Component {
+    private boolean mIsMoving;
     private Heading mHeading;
 
     /**
@@ -32,7 +33,26 @@ public final class PositionHeadingComponent extends Component {
      * @param heading the {@linkplain Heading}  of the movement.
      */
     public PositionHeadingComponent(Heading heading) {
+        this.mIsMoving = false;
         this.mHeading = heading;
+    }
+
+    /**
+     * Retrieves the moving property of the {@linkplain Component}.
+     *
+     * @return {@linkplain Boolean#TRUE} if moving {@linkplain Boolean#FALSE} otherwise.
+     */
+    public boolean isMoving() {
+        return mIsMoving;
+    }
+
+    /**
+     * Changes the moving property of the {@linkplain Component}.
+     *
+     * @param isMoving {@linkplain Boolean#TRUE} if moving {@linkplain Boolean#FALSE} otherwise.
+     */
+    public void setMoving(boolean isMoving) {
+        mIsMoving = isMoving;
     }
 
     /**

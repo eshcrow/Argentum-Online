@@ -39,12 +39,7 @@ public enum Heading {
     /**
      * West heading.
      */
-    WEST,
-
-    /**
-     * No heading.
-     */
-    NONE;
+    WEST;
 
     /**
      * An array that contain(s) all enumeration values.
