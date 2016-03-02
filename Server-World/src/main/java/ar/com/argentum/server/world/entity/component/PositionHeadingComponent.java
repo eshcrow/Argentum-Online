@@ -21,67 +21,18 @@ import ar.com.argentum.server.world.entity.Heading;
 import com.artemis.Component;
 
 /**
- * Encapsulate a {@linkplain Component} which encapsulate coordinates from a movement.
+ * Encapsulate a {@linkplain Component} which encapsulate {@linkplain Heading}.
  */
-public final class PositionMovementComponent extends Component {
-    private int mX;
-    private int mY;
+public final class PositionHeadingComponent extends Component {
     private Heading mHeading;
 
     /**
-     * Constructor for {@linkplain PositionMovementComponent}.
-     */
-    public PositionMovementComponent() {
-        this(0, 0, Heading.NORTH);
-    }
-
-    /**
-     * Constructor for {@linkplain PositionMovementComponent}.
+     * Constructor for {@linkplain PositionHeadingComponent}.
      *
-     * @param x       the x coordinate (in world coordinates).
-     * @param y       the y coordinate (in world coordinates).
      * @param heading the {@linkplain Heading}  of the movement.
      */
-    public PositionMovementComponent(int x, int y, Heading heading) {
-        this.mX = x;
-        this.mY = y;
+    public PositionHeadingComponent(Heading heading) {
         this.mHeading = heading;
-    }
-
-    /**
-     * Retrieves the x coordinate (in world coordinates).
-     *
-     * @return the x coordinate (in world coordinates).
-     */
-    public int getX() {
-        return mX;
-    }
-
-    /**
-     * Changes the x coordinate (in world coordinates).
-     *
-     * @param x the new x coordinate (in world coordinates).
-     */
-    public void setX(int x) {
-        mX = x;
-    }
-
-    /**
-     * Retrieves the y coordinate (in world coordinates).
-     *
-     * @return the y coordinate (in world coordinates).
-     */
-    public int getY() {
-        return mY;
-    }
-
-    /**
-     * Changes the y coordinate (in world coordinates).
-     *
-     * @param y the new y coordinate (in world coordinates).
-     */
-    public void setY(int y) {
-        mY = y;
     }
 
     /**
