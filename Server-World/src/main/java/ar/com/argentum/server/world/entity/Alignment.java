@@ -43,7 +43,7 @@ public enum Alignment {
     public static final int LENGTH = VALUES.length;
 
     /**
-     * Retrieve the enumeration value given the indice.
+     * Retrieve the enumeration value given the index.
      *
      * @param index the index of the enumeration.
      *
@@ -59,8 +59,8 @@ public enum Alignment {
     /**
      * Retrieves the {@linkplain Relation} of both {@linkplain Alignment}.
      *
-     * @param first  the first alignment for the comparision.
-     * @param second the second alignment for the comparision.
+     * @param first  the first alignment for the comparison.
+     * @param second the second alignment for the comparison.
      *
      * @return {@linkplain Relation} of the given {@linkplain Alignment}.
      */

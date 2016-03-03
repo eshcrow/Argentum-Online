@@ -25,6 +25,9 @@ subprojects {
             url "http://oss.sonatype.org/content/groups/public/"
         }
         maven {
+            url "https://jitpack.io"
+        }
+        maven {
             url 'http://oss.sonatype.org/content/repositories/snapshots'
         }
         mavenCentral();

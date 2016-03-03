@@ -23,16 +23,16 @@ import com.artemis.Component;
 /**
  * Encapsulate a {@linkplain Component} which encapsulate {@linkplain Heading}.
  */
-public final class PositionHeadingComponent extends Component {
+public final class PositionMovemenetComponent extends Component {
     private boolean mIsMoving;
     private Heading mHeading;
 
     /**
-     * Constructor for {@linkplain PositionHeadingComponent}.
+     * Constructor for {@linkplain PositionMovemenetComponent}.
      *
-     * @param heading the {@linkplain Heading}  of the movement.
+     * @param heading the {@linkplain Heading} of the movement.
      */
-    public PositionHeadingComponent(Heading heading) {
+    public PositionMovemenetComponent(Heading heading) {
         this.mIsMoving = false;
         this.mHeading = heading;
     }

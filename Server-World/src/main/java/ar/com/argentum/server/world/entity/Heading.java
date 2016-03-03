@@ -48,7 +48,7 @@ public enum Heading {
     public static final int LENGTH = VALUES.length;
 
     /**
-     * Retrieve the enumeration value given the indice.
+     * Retrieve the enumeration value given the index.
      *
      * @param index the index of the enumeration.
      *

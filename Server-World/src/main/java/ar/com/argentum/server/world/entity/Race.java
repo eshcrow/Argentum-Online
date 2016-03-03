@@ -17,8 +17,8 @@
  */
 package ar.com.argentum.server.world.entity;
 
-import ar.com.argentum.server.world.entity.attribute.AttributeModifier;
 import com.gs.collections.api.collection.ImmutableCollection;
+import org.ghrum.core.attributes.AttributeModifier;
 
 /**
  * Represent a race definition for an {@linkplain com.artemis.Entity}.
@@ -30,7 +30,7 @@ public final class Race {
     private final String mName;
 
     /**
-     * A collection of {@linkplain AttributeModifier} that provide(s) the race.
+     * A collection of {@linkplain AttributeModifier} that provides the race.
      */
     private final ImmutableCollection<AttributeModifier> mModifier;
 
@@ -61,14 +61,5 @@ public final class Race {
      */
     public ImmutableCollection<AttributeModifier> getModifiers() {
         return mModifier;
-    }
-
-    /**
-     * Check whenever the {@linkplain Race} has any {@linkplain AttributeModifier}.
-     *
-     * @return {@linkplain Boolean#TRUE} has atleast one modifier, {@linkplain Boolean#FALSE} otherwise.
-     */
-    public boolean hasModifiers() {
-        return mModifier.notEmpty();
     }
 }
